@@ -6,7 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>Aula de Quinta-Feira</title>
 </head>
-<body>
-<p><h3>Aula de Quinta feira no turno matutino</h3></p>
-</body>
+	<body>
+		<p>
+			<h3>Aula de Quinta feira no turno matutino</h3>
+		</p>
+	</body>
 </html>
