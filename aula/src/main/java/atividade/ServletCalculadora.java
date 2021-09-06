@@ -1,7 +1,7 @@
 package atividade;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,17 +28,21 @@ public class ServletCalculadora extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int n1;
-		int n2;
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		
-		Scanner input = new Scanner(System.in);
+		String svalorA = request.getParameter("valorA");
+		String svalorB = request.getParameter("valorB");
+		String sopcao = request.getParameter("opcao");
 		
-		System.out.println("Qual o primeiro número?");
-		n1 = input.nextInt();
-		System.out.println("Qual o segundo número?");
-		n2 = input.nextInt();
+		double dvalorA = Double.parseDouble(svalorA);
+		double dvalorB = Double.parseDouble(svalorB);
+		double resultado = 0;
 		
-		System.out.println("Soma: "+(n1+n2));
+		if(sopcao.equals("+")) {
+			resultado = dvalorA + dvalorB;
+		}
+		
+		out.print("Resultado:<br>"+resultado);
 	}
-
 }
