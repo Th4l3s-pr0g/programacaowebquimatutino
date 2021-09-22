@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletLogin
+ * Servlet implementation class ServletTela1Cadastro
  */
-@WebServlet("/ServletLogin")
+@WebServlet("/ServletTela1Cadastro")
 public class ServletTela1Cadastro extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,7 @@ public class ServletTela1Cadastro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-PrintWriter resp = response.getWriter();
+		PrintWriter resp = response.getWriter();
     	
     	resp.write("<html>");
         resp.write("<head>");
@@ -70,7 +70,6 @@ PrintWriter resp = response.getWriter();
         resp.write("<input type=\"submit\" value=\"Confirmar\"><BR>");
         resp.write("</form>");
         resp.write("</body></html>");
-    	
 	}
-	
+
 }
