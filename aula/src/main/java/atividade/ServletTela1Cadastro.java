@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletTela1Cadastro
@@ -70,6 +71,23 @@ public class ServletTela1Cadastro extends HttpServlet {
         resp.write("<input type=\"submit\" value=\"Confirmar\"><BR>");
         resp.write("</form>");
         resp.write("</body></html>");
+        
+        String nome = request.getParameter("nome");
+        String sobrenome = request.getParameter("sobrenome");
+        String rua = request.getParameter("rua");
+        String complemento = request.getParameter("complemento");
+        String cidade = request.getParameter("cidade");
+        String cep = request.getParameter("cep");
+		String estado = request.getParameter("estado");
+		
+		HttpSession sessao = request.getSession();
+		sessao.setAttribute("nome", nome);
+		sessao.setAttribute("sobrenome", sobrenome);
+		sessao.setAttribute("rua", rua);
+		sessao.setAttribute("complemento", complemento);
+		sessao.setAttribute("cidade", cidade);
+		sessao.setAttribute("cep", cep);
+		sessao.setAttribute("estado", estado);
 	}
 
 }

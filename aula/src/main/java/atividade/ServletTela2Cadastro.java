@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletTela2Cadastro
@@ -69,6 +70,28 @@ public class ServletTela2Cadastro extends HttpServlet {
         resp.write(", ");
         resp.write(request.getParameter("estadoEmpresa"));
         resp.write("</body></html>");
+	
+        HttpSession sessao = request.getSession();
+        
+        String nome = (String) sessao.getAttribute("nome");
+        String sobrenome = (String) sessao.getAttribute("sobrenome");
+        String rua = (String) sessao.getAttribute("rua");
+        String complemento = (String) sessao.getAttribute("complemento");
+        String cidade = (String) sessao.getAttribute("cidade");
+        String cep = (String) sessao.getAttribute("cep");
+        String estado = (String) sessao.getAttribute("estado");
+        
+        PrintWriter out = response.getWriter();
+        out.write("<html><body>");
+        out.write("Nome: "+ nome);
+        out.write("Sobrenome: "+ sobrenome);
+        out.write("Rua: "+ rua);
+        out.write("Complemento: "+ complemento);
+        out.write("Cidade: "+ cidade);
+        out.write("CEP: "+ cep);
+        out.write("Estado: "+ estado);
+        out.write("<html><body>");
+        out.close();
 	}
 
 }
